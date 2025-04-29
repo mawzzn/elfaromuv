@@ -1,0 +1,1011 @@
+/**
+ * Hoja de estilos principal para El Faro
+ */
+
+ :root {
+    --primary-color: #3273dc;
+    --secondary-color: #209cee;
+    --accent-color: #ffdd57;
+    --text-color: #4a4a4a;
+    --background-color: #ffffff;
+    --footer-color: #363636;
+    --section-padding: 3rem 1.5rem;
+  }
+  
+  /* Estilos generales */
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  .title, .subtitle, h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  main {
+    flex: 1 0 auto;
+  }
+  
+  /* Encabezado y navegación */
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .article-title {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .navbar-item img {
+    max-height: 3rem;
+  }
+  
+  .category-tag {
+    font-size: 0.8rem;
+  }
+  
+  .navbar {
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-item:hover {
+    background-color: #363636;
+    color: #fff;
+  }
+  
+  .navbar-wrapper {
+    background-color: #222;
+  }
+  
+  .hero.is-info {
+    background: linear-gradient(135deg, #3273dc, #209cee);
+  }
+  
+  .notification.is-announcement {
+    border-left: 4px solid var(--accent-color);
+    background-color: rgba(255, 221, 87, 0.1);
+    padding: 0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .hero-body {
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .has-shadow {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-container {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: white;
+  }
+  
+  .navbar.is-transparent {
+    background-color: white;
+  }
+  
+  .navbar-item {
+    color: #4a4a4a;
+    position: relative;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-item:hover, 
+  .navbar-item.is-active {
+    background-color: transparent !important;
+    color: #3273dc;
+  }
+  
+  /* Subrayado animado para elementos activos o en hover */
+  .navbar-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3273dc;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-item:hover::after,
+  .navbar-item.is-active::after {
+    width: 100%;
+  }
+  
+  /* Estilos específicos para el dropdown */
+  .navbar-item.has-dropdown {
+    padding: 0;
+  }
+  
+  .navbar-link.has-text-weight-bold {
+    color: #4a4a4a;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link.has-text-weight-bold:hover {
+    background-color: transparent !important;
+    color: #3273dc;
+  }
+  
+  .navbar-link.has-text-weight-bold:focus {
+    background-color: transparent !important;
+  }
+  
+  /* Eliminar el fondo negro y mejorar el estilo del dropdown */
+  .navbar-dropdown {
+    background-color: white;
+    border-radius: 6px;
+    border-top: 2px solid #3273dc;
+    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    top: calc(100% - 4px);
+    left: 0;
+    min-width: 140px;
+  }
+  
+  /* Eliminar la flecha azul del dropdown */
+  .navbar-link:not(.is-arrowless)::after {
+    display: none !important;
+  }
+  
+  /* Elementos dentro del dropdown */
+  .navbar-dropdown .navbar-item {
+    padding: 0.5rem 1.5rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-dropdown .navbar-item:hover {
+    background-color: #f5f5f5 !important;
+    color: #3273dc;
+  }
+  
+  /* Eliminar la línea after del dropdown para que no tenga subrayado */
+  .navbar-dropdown .navbar-item::after {
+    display: none;
+  }
+  
+  .hero-foot {
+    border-top: 1px solid #eee;
+  }
+  
+  /* Artículos y tarjetas */
+  .featured-article {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .featured-article:hover {
+    transform: translateY(-5px);
+  }
+  
+  .article-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .article-meta .tag {
+    margin-right: 0.5rem;
+  }
+  
+  .article-date {
+    font-size: 0.85rem;
+    color: #888;
+  }
+  
+  .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .card:hover {
+    background-color: #222;
+    color: #fff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transform: translateY(-5px);
+  }
+  
+  .card:hover .title,
+  .card:hover p,
+  .card:hover span,
+  .card:hover a {
+    color: #fff !important;
+  }
+  
+  .card:hover a.card-footer-item {
+    background-color: transparent;
+    color: #00d1b2;
+  }
+  
+  /* Separadores y secciones */
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+    margin: 2rem 0;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .section-header .title {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  
+  .section-header .line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #dbdbdb;
+  }
+  
+  /* Pie de página */
+  .footer {
+    padding: 3rem 1.5rem 3rem;
+    background-color: var(--footer-color);
+    color: #fff;
+  }
+  
+  .footer-menu {
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Botón volver arriba */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+  
+  .back-to-top.is-fadein {
+    opacity: 0.8;
+    animation: fadeIn 0.3s forwards;
+  }
+  
+  .back-to-top.is-fadeout {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .back-to-top:hover {
+    opacity: 1;
+    transform: translateY(-5px);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 0.8; }
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 0.8; }
+    to { opacity: 0; }
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 1023px) {
+    .navbar-menu.is-active {
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    }
+    
+    .navbar-dropdown {
+      background-color: #f9f9f9;
+      border-top: none;
+      border-left: 2px solid #3273dc;
+      box-shadow: none;
+      padding-left: 1rem;
+    }
+    
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .section-header .title {
+      margin-bottom: 1rem;
+    }
+    
+    .section-header .line {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    header .columns {
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+    }
+    
+    #reloj {
+      font-size: 0.75rem;
+      text-align: right;
+    }
+    
+    .card:hover {
+      transform: translateY(-3px);
+    }
+  }
+  
+  /* Formularios */
+  .is-divider {
+    display: block;
+    position: relative;
+    border-top: 1px solid #dbdbdb;
+    height: 1px;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .is-divider[data-content]::after {
+    background: #fff;
+    color: #b5b5b5;
+    content: attr(data-content);
+    display: inline-block;
+    font-size: 0.75rem;
+    padding: 0 0.8rem;
+    position: relative;
+    text-transform: uppercase;
+    top: -0.7rem;
+  }
+  
+  /* Vista previa de imagen */
+  #image-preview-container {
+    border: 1px solid #dbdbdb;
+    padding: 1rem;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Transiciones para notificaciones */
+  .notification {
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  
+  .notification.is-fading {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  
+  /* Otras mejoras visuales */
+  .card-footer-item {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .card-footer-item:hover {
+    background-color: #f5f5f5;
+    color: var(--primary-color);
+  }
+  
+  /* Estilos para comentarios */
+  .comments-list {
+    margin-top: 2rem;
+  }
+  
+  .comment {
+    padding: 1rem;
+    border-bottom: 1px solid #f1f1f1;
+  }
+  
+  .comment:last-child {
+    border-bottom: none;
+  }
+  
+  /* Mejoras visuales para multimedia */
+  video {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  iframe {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Estilo para etiquetas */
+  .tags {
+    justify-content: center;
+  }
+  
+  .tag {
+    margin-right: 0.5rem;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .tag:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Estilos para botones de redes sociales */
+  .buttons .button {
+    transition: transform 0.3s;
+  }
+  
+  .buttons .button:hover {
+    transform: scale(1.1);
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+}
+.article-title {
+    font-family: 'Playfair Display', serif;
+}
+.navbar-item img {
+    max-height: 3rem;
+}
+.category-tag {
+    font-size: 0.8rem;
+}
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 99;
+}
+.multimedia-container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .card:hover {
+    background-color: #222; /* fondo negro o muy oscuro */
+    color: #fff; /* texto blanco */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    transform: translateY(-5px); /* se eleva ligeramente */
+  }
+  
+  /* Asegura que también los textos dentro de 'card-content' cambien */
+  .card:hover .title,
+  .card:hover p,
+  .card:hover span,
+  .card:hover a {
+    color: #fff !important;
+  }
+  
+  /* Para enlaces dentro de la card */
+  .card:hover a.card-footer-item {
+    background-color: transparent;
+    color: #00d1b2; /* o blanco si prefieres */
+  }
+
+  .navbar {
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar-item:hover {
+    background-color: #363636;
+    color: #fff;
+  }
+
+  .navbar-wrapper {
+    background-color: #222; /* mismo fondo que navbar */
+  }
+
+  :root {
+    --primary-color: #3273dc;
+    --secondary-color: #209cee;
+    --accent-color: #ffdd57;
+  }
+  
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  
+  .title, .subtitle, h1, h2, h3, h4, h5 {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .hero.is-info {
+    background: linear-gradient(135deg, #3273dc, #209cee);
+  }
+  
+  .notification.is-announcement {
+    border-left: 4px solid var(--accent-color);
+    background-color: rgba(255, 221, 87, 0.1);
+  }
+  
+  .featured-article {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+  
+  .featured-article:hover {
+    transform: translateY(-5px);
+  }
+  
+  .article-meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .article-meta .tag {
+    margin-right: 0.5rem;
+  }
+  
+  .article-date {
+    font-size: 0.85rem;
+    color: #888;
+  }
+  
+  .section-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+    margin: 2rem 0;
+  }
+  
+  .footer {
+    padding: 3rem 1.5rem 3rem;
+  }
+  
+  .footer-menu {
+    margin-bottom: 1.5rem;
+  }
+  
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 100;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+  }
+  
+  .back-to-top:hover {
+    opacity: 1;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .section-header .title {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+  
+  .section-header .line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #dbdbdb;
+    /* Estilos para el encabezado y menú */
+header.hero {
+  background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+  border-bottom: 1px solid #eeeeee;
+}
+
+.navbar-container {
+  border-top: 1px solid #eeeeee;
+  border-bottom: 1px solid #eeeeee;
+  padding: 0.5rem 0;
+}
+
+.navbar.is-transparent {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.navbar-item {
+  position: relative;
+  margin: 0 0.75rem;
+  padding: 0.5rem 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-item::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
+}
+
+.navbar-item:hover::after,
+.navbar-item.is-active::after {
+  width: 100%;
+}
+
+.navbar-item.is-active {
+  color: var(--primary-color);
+}
+
+.hero-foot .tabs {
+  margin-bottom: 0;
+}
+
+.hero-foot .tabs ul {
+  border-bottom: none;
+}
+
+.hero-foot .tabs a {
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+
+.has-shadow {
+  filter: drop-shadow(0px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+.is-announcement {
+  border-left: none;
+  border-radius: 0;
+  background: linear-gradient(90deg, rgba(255, 221, 87, 0.2), rgba(255, 221, 87, 0.1));
+}
+
+/* Responsive improvements */
+@media screen and (max-width: 1023px) {
+  .navbar-menu.is-active.is-centered {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .navbar-start {
+    margin: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+}
+  }
+
+  .notification.is-announcement {
+    padding: 0.5rem;
+    margin-bottom: 0;
+    background-color: #f5f5f5;
+  }
+  
+  .hero-body {
+    padding: 1.5rem 1.5rem;
+  }
+  
+  .has-shadow {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .navbar-container {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 0.5rem 0;
+  }
+  
+  .hero-foot {
+    border-top: 1px solid #eee;
+  }
+  
+  /* Estilos para el carrusel */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+    display: flex;
+    min-height: 200px;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .carousel-items {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    min-height: 350px;
+    width: 100%;
+    transition: opacity 0.8s ease ease-in-out;
+  }
+  
+  .carousel-item {
+    min-width: 100%;
+    background: #f9f9f9;
+    flex-shrink: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity 0.8s ease-in-out; /* Transición más lenta para desvanecido */
+    top: 0;
+    left: 0;
+    border-radius: 12px;
+    overflow: hidden; /* Para que el border-radius se aplique también a la imagen */
+  }
+  
+  .carousel-item.is-active {
+    opacity: 1;
+    position: relative;
+    z-index: 2;
+    animation: fadeIn 0.8s ease-in-out;
+  }
+/* Animación de desvanecido para las transiciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+  .carousel-img {
+    width: 100%;
+    height: 350px;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0.5rem;
+    object-fit: cover; /* Asegura que las imágenes mantengan proporciones y cubran el espacio */
+    transition: transform 0.3s ease;
+  }
+
+  /* Efecto hover en toda la tarjeta */
+.carousel-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+  
+/* Animación al hacer hover (zoom suave) */
+.carousel-item:hover .carousel-img {
+    transform: scale(1.05);
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    z-index: 2;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .carousel-prev {
+    left: -40px;
+  }
+  
+  .carousel-next {
+    right: -40px;
+  }
+
+/* Puntos de navegación */
+.carousel-dots {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.carousel-dots .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background-color: #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-dots .dot.is-active {
+    background-color: #3273dc; /* Azul Bulma */
+    box-shadow: 0 0 6px #3273dc;
+}
+
+
+
+  @media (max-width: 768px) {
+    .carousel-item {
+      min-width: 80%;
+      border-radius: 12px 12px 0 0;
+    }
+  }
+
+  /* Animación de entrada */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .news-tag {
+    font-weight: bold;
+    color: #c00;
+    margin-right: 0.5rem;
+  }
+  
+  .navbar-item, .navbar-link {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    header .columns {
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+    }
+    #reloj {
+      font-size: 0.75rem;
+      text-align: right;
+    }
+  }
+
+  p.subtitle{
+    padding-top: 15px;
+  }
+
+/* Estilos para el navbar principal */
+.navbar-container {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background-color: white;
+  }
+  
+  .navbar.is-transparent {
+    background-color: white;
+  }
+  
+  .navbar-item {
+    color: #4a4a4a;
+    position: relative;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-item:hover, 
+  .navbar-item.is-active {
+    background-color: transparent !important;
+    color: #3273dc;
+  }
+  
+  /* Subrayado animado para elementos activos o en hover */
+  .navbar-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #3273dc;
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-item:hover::after,
+  .navbar-item.is-active::after {
+    width: 100%;
+  }
+  
+  /* Estilos específicos para el dropdown */
+  .navbar-item.has-dropdown {
+    padding: 0;
+  }
+  
+  .navbar-link.has-text-weight-bold {
+    color: #4a4a4a;
+    padding: 0.75rem 1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-link.has-text-weight-bold:hover {
+    background-color: transparent !important;
+    color: #3273dc;
+  }
+  
+  .navbar-link.has-text-weight-bold:focus {
+    background-color: transparent !important;
+  }
+  
+  /* Eliminar el fondo negro y mejorar el estilo del dropdown */
+  .navbar-dropdown {
+    background-color: white;
+    border-radius: 6px;
+    border-top: 2px solid #3273dc;
+    box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    top: calc(100% - 4px); /* Ajusta la posición para eliminar el espacio */
+    left: 0;
+    min-width: 140px;
+  }
+  
+  /* Eliminar la flecha azul del dropdown */
+.navbar-link:not(.is-arrowless)::after {
+    display: none !important; /* Eliminar completamente la flecha */
+  }
+  
+  /* Elementos dentro del dropdown */
+  .navbar-dropdown .navbar-item {
+    padding: 0.5rem 1.5rem;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-dropdown .navbar-item:hover {
+    background-color: #f5f5f5 !important;
+    color: #3273dc;
+  }
+  
+  /* Eliminar la línea after del dropdown para que no tenga subrayado */
+  .navbar-dropdown .navbar-item::after {
+    display: none;
+  }
+  
+  /* Flecha del dropdown */
+  .navbar-link:not(.is-arrowless)::after {
+    border-color: #3273dc !important;
+    margin-top: -0.375em;
+    right: 1.125em;
+  }
+  
+  /* Responsivo */
+  @media screen and (max-width: 1023px) {
+    .navbar-menu.is-active {
+      box-shadow: 0 8px 16px rgba(10, 10, 10, 0.1);
+    }
+    
+    .navbar-dropdown {
+      background-color: #f9f9f9;
+      border-top: none;
+      border-left: 2px solid #3273dc;
+      box-shadow: none;
+      padding-left: 1rem;
+    }
+  }
